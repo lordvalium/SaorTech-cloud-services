@@ -75,8 +75,8 @@ echo "Database has been created. User=nextcloud, Password=$my_password, Database
 echo "Setting up nextcloud"
 apt install php7.3-gd php7.3-json php7.3-mysql php7.3-curl php7.3-mbstring php7.3-intl php7.3-imagick php7.3-xml php7.3-zip -y
 
-wget https://download.nextcloud.com/server/releases/nextcloud-15.0.7.tar.bz2
-tar -xvf nextcloud-15.0.7.tar.bz2
+wget https://download.nextcloud.com/server/releases/latest-20.tar.bz2
+tar -xvf latest-20.tar.bz2
 cd nextcloud
 rm /var/www/html/index.html
 mv ./* /var/www/html/ | mv ./.htaccess /var/www/html | mv ./.user.ini /var/www/html
@@ -163,6 +163,6 @@ sed -i "s/;opcache.revalidate_freq=2/opcache.revalidate_freq=1/" /etc/php/7.3/ap
 systemctl restart apache2
 a2enmod headers
 
--u www-data php /var/www/html/./occ db:convert-filecache-bigint
+sudo -u www-data php /var/www/html/./occ db:convert-filecache-bigint
 
 echo "Congradulations nextcloud is officially set up "
