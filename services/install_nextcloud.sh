@@ -90,9 +90,9 @@ chown www-data:www-data .user.ini
 
 
 #Setting up Encryption
-echo "Setting up encryption"
-apt install certbot -y
-apt install python3-certbot-apache -y
+#echo "Setting up encryption"
+#apt install certbot -y
+#apt install python3-certbot-apache -y
 
 sed -i "s/#ServerName www.example.com/ServerName $my_domain/" /etc/apache2/sites-available/000-default.conf
 
